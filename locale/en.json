@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Geometry Drawing",
+    "description": "Draw complex geometry with free-form fills: boolean ops, contour offset, multi-contour holes, gradients and patterns, parametric curves, rotational arrays and geometric annotation — as self-contained SVG plus PNG."
+  }
+}

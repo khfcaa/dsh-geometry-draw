@@ -1,0 +1,16 @@
+# 开发与维护用的文件：不作为 npm 包内容发布。
+# 注意 package.json 里**没有** "private": true —— 那是刻意的，
+# 这样这个包既能被 DSH 以 file:/link: 安装，也允许将来发布到 npm。
+tests/
+tools/
+examples/
+docs/
+.github/
+
+.editorconfig
+.gitattributes
+.gitignore
+.npmignore
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md

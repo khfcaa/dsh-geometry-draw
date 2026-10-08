@@ -1,0 +1,12 @@
+# dsh-geometry-draw 的 bundle 层。
+#
+# 当某个 profile 在 `dsh.profile.bundles` 里列出这个包时，这一层会被应用。
+# 这一行把插件的 Host 半挂起来：它在 `ctx.tools` 上注册模型可见的
+# `geometry_draw` 工具，并在 `ctx.systemPrompt` 上挂一句使用指引；行被卸载时
+# 两者一并撤销。
+#
+# 行的 `name` 是安装后的包名（私有包用相对路径安装也照此解析），`id` 是
+# profile 自己的补丁层用来覆盖它的地址（例如临时停用工具而不卸载）。
+- insert:
+    - id: dsh-geometry-draw
+      name: 'dsh-geometry-draw'

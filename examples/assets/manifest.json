@@ -1,0 +1,170 @@
+[
+  {
+    "name": "01-boolean-gradient",
+    "title": "布尔差集 + 线性渐变",
+    "caption": "boolean difference + linear gradient",
+    "png": "examples/assets/01-boolean-gradient.png",
+    "svg": "examples/assets/01-boolean-gradient.svg",
+    "spec": "examples/01-boolean-gradient.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 2,
+      "points": 106,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 1948,
+      "elements": 1,
+      "rendered": 1
+    },
+    "warnings": []
+  },
+  {
+    "name": "02-offset-ring-pattern",
+    "title": "轮廓偏移环带 + 图案填充",
+    "caption": "contour offset ring + pattern fill",
+    "png": "examples/assets/02-offset-ring-pattern.png",
+    "svg": "examples/assets/02-offset-ring-pattern.svg",
+    "spec": "examples/02-offset-ring-pattern.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 2,
+      "points": 192,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 3208,
+      "elements": 1,
+      "rendered": 1
+    },
+    "warnings": []
+  },
+  {
+    "name": "03-repeat-mirror",
+    "title": "旋转阵列 + 镜像（12 瓣）",
+    "caption": "rotational array + mirror (12 arms)",
+    "png": "examples/assets/03-repeat-mirror.png",
+    "svg": "examples/assets/03-repeat-mirror.svg",
+    "spec": "examples/03-repeat-mirror.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 26,
+      "points": 528,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 8820,
+      "elements": 3,
+      "rendered": 26
+    },
+    "warnings": []
+  },
+  {
+    "name": "04-polar-rose",
+    "title": "极坐标玫瑰线 r = 5.6cos(3θ)",
+    "caption": "polar rose (3 petals) + radial gradient",
+    "png": "examples/assets/04-polar-rose.png",
+    "svg": "examples/assets/04-polar-rose.svg",
+    "spec": "examples/04-polar-rose.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 2,
+      "points": 816,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 12353,
+      "elements": 2,
+      "rendered": 2
+    },
+    "warnings": []
+  },
+  {
+    "name": "05-parametric-lissajous",
+    "title": "参数方程：李萨如曲线",
+    "caption": "parametric Lissajous (self-intersecting)",
+    "png": "examples/assets/05-parametric-lissajous.png",
+    "svg": "examples/assets/05-parametric-lissajous.svg",
+    "spec": "examples/05-parametric-lissajous.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 1,
+      "points": 2400,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 34477,
+      "elements": 1,
+      "rendered": 1
+    },
+    "warnings": []
+  },
+  {
+    "name": "06-annotation",
+    "title": "几何标注：顶点 / 角弧 / 直角 / 尺寸",
+    "caption": "annotated construction",
+    "png": "examples/assets/06-annotation.png",
+    "svg": "examples/assets/06-annotation.svg",
+    "spec": "examples/06-annotation.json",
+    "canvas": [
+      560,
+      560
+    ],
+    "pixel": [
+      1120,
+      1120
+    ],
+    "stats": {
+      "rings": 6,
+      "points": 24,
+      "selfIntersections": 0,
+      "degenerate": 0,
+      "width": 560,
+      "height": 560,
+      "svgBytes": 1709,
+      "elements": 7,
+      "rendered": 14
+    },
+    "warnings": []
+  }
+]

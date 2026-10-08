@@ -1,0 +1,47 @@
+{
+  "name": "02-offset-ring-pattern",
+  "title": "轮廓偏移环带 + 图案填充",
+  "figure": {
+    "width": 560,
+    "height": 560,
+    "padding": 20,
+    "background": "transparent",
+    "xRange": [-12, 12],
+    "yRange": [-12, 12],
+    "elements": [
+      {
+        "type": "boolean",
+        "boolean": "difference",
+        "fill_rule": "evenodd",
+        "fill": {
+          "type": "pattern",
+          "tile": 74,
+          "background": "#fef3c7",
+          "shapes": [
+            {
+              "type": "diagonal",
+              "color": "#f59e0b",
+              "stroke_width": 15
+            }
+          ]
+        },
+        "stroke": "#b45309",
+        "stroke_width": 0.28,
+        "elements": [
+          {
+            "type": "circle",
+            "center": [0, 0],
+            "radius": 8.2,
+            "offset": 1.1
+          },
+          {
+            "type": "circle",
+            "center": [0, 0],
+            "radius": 8.2,
+            "offset": -1.1
+          }
+        ]
+      }
+    ]
+  }
+}

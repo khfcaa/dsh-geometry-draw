@@ -1,0 +1,29 @@
+# EditorConfig —— https://editorconfig.org
+# 编辑器/IDE 读这个文件就能对齐缩进风格，不依赖各人的本地设置。
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = tab
+indent_size = 4
+
+[*.{json,yml,yaml,md}]
+indent_style = space
+indent_size = 2
+# Markdown 里行尾两个空格是「硬换行」，不能删
+trim_trailing_whitespace = false
+
+[*.svg]
+indent_style = space
+indent_size = 2
+
+[LICENSE]
+insert_final_newline = false
+
+[*.{png,jpg,jpeg,gif,webp,ico}]
+insert_final_newline = false
+trim_trailing_whitespace = false

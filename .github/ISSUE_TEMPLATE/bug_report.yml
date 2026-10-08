@@ -1,0 +1,83 @@
+name: Bug 报告
+description: 画出来的图和预期不符、报错、或工具没出现
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。几何问题**必须**带上可复现的规格片段——没有规格的「画错了」我们无法定位。
+
+        如果你要报告的是**安全**问题，请不要用这个表单，改走
+        [私密安全公告](https://github.com/khfcaa/dsh-geometry-draw/security/advisories/new)。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 实际发生了什么
+      description: 画出什么、或报了什么错。贴完整的报错文本（不要只说「报错了」）。
+      placeholder: 差集应该挖出五角星孔洞，但孔洞被填实了。
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 你期望发生什么
+      placeholder: 圆盘中间应该有一个五角星形状的空洞（透出背景色）。
+    validations:
+      required: true
+
+  - type: textarea
+    id: spec
+    attributes:
+      label: 可复现的规格
+      description: 最小化的 `figure` JSON。请删掉与问题无关的元素，越小越好。
+      render: json
+      placeholder: |
+        {
+          "elements": [
+            {
+              "type": "boolean",
+              "boolean": "difference",
+              "elements": [
+                { "type": "circle", "center": [0, 0], "radius": 5 },
+                { "type": "star", "center": [0, 0], "radius": 5.6, "inner_radius": 2.4, "points": 5 }
+              ]
+            }
+          ]
+        }
+    validations:
+      required: true
+
+  - type: textarea
+    id: warnings
+    attributes:
+      label: 工具返回的 warnings / stats
+      description: 如果有的话，把返回里的 `warnings`、`stats.rings`、`stats.selfIntersections` 贴上来。
+      render: text
+
+  - type: input
+    id: version
+    attributes:
+      label: 插件版本
+      description: 本仓库 `package.json` 里的 version，或 commit hash。
+      placeholder: 0.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: host
+    attributes:
+      label: 运行环境
+      options:
+        - DeepSeek Harness 桌面版
+        - DeepSeek Harness Web（dsh web）
+        - 直接用 Node 调 createGeometryTool（开发自测）
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 截图或产物
+      description: 把出问题的 PNG/SVG 拖进来。有图比文字快十倍。

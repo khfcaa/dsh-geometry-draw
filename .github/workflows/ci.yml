@@ -1,0 +1,105 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - 'LICENSE'
+      - '.github/ISSUE_TEMPLATE/**'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: ['22', '24']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # 插件本身零依赖；只有 PNG 栅格化需要 @resvg/resvg-js（预编译原生扩展）。
+      # 没有 lock 文件，因此用 install 而不是 ci。
+      - name: 安装栅格化依赖
+        run: npm install --no-audit --no-fund @resvg/resvg-js
+
+      - name: 语法检查
+        run: npm run check
+
+      - name: 几何内核自测
+        run: node tests/geometry-test.mjs
+
+      - name: 工具层自测
+        run: node tests/tool-test.mjs
+
+      - name: 渲染冒烟测试
+        run: node tests/compiler-smoke.mjs
+
+      # 把渲染结果留档：PR 里可以直接下载这四张图，肉眼确认没有被改坏。
+      - name: 上传渲染产物
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: render-smoke-${{ matrix.os }}-node${{ matrix.node }}
+          path: tests/out/
+          if-no-files-found: warn
+          retention-days: 7
+
+  package:
+    name: 包结构自检
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # 保证入口文件真的能 import、且导出了 DSH 需要的三个契约。
+      - name: 入口可加载且导出契约完整
+        run: |
+          node --input-type=module -e "
+          const mod = await import('./index.js');
+          const need = ['name', 'inject', 'apply'];
+          const missing = need.filter((k) => mod[k] === undefined);
+          if (missing.length > 0) {
+            console.error('index.js 缺少导出: ' + missing.join(', '));
+            process.exit(1);
+          }
+          if (!Array.isArray(mod.inject) || !mod.inject.includes('tools')) {
+            console.error('inject 必须包含 \"tools\"');
+            process.exit(1);
+          }
+          console.log('ok: name=' + mod.name + ', inject=' + mod.inject.join(','));
+          "
+
+      # bundle 层必须把包名声明进去，否则 profile 列了这个包也不会挂起工具。
+      - name: bundle 补丁层声明了包名
+        run: |
+          if ! grep -q "dsh-geometry-draw" cordis.patch.yml; then
+            echo "cordis.patch.yml 未声明 dsh-geometry-draw"
+            exit 1
+          fi
+          if ! grep -q 'dsh-geometry-draw' package.json; then
+            echo "package.json 未声明 dsh.bundle"
+            exit 1
+          fi
+          echo "ok"

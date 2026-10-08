@@ -1,0 +1,55 @@
+name: 功能建议
+description: 想要新的元素类型、新的填充方式、或新的构图能力
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        建议前请先看一眼 [README 的能力表](https://github.com/khfcaa/dsh-geometry-draw#能力) ——
+        布尔运算、轮廓偏移、多轮廓孔洞、渐变、图案、参数曲线、旋转阵列、镜像、几何标注都已支持。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想画什么，现在卡在哪
+      description: 描述**目标图形**，而不是你猜的实现方案。有参考图就贴。
+      placeholder: 我想画一个齿轮的渐开线齿廓并直接填色，现在只能靠几十个 polygon 手拼坐标。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你期望的写法（可选）
+      description: 如果你能想到规格应该长什么样，写出来——这会直接决定 API 的样子。
+      render: json
+      placeholder: |
+        { "type": "involute", "center": [0,0], "module": 2, "teeth": 20 }
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 涉及哪一块
+      options:
+        - 元素类型（新的形状/曲线）
+        - 填充与描边（渐变/图案/透明度）
+        - 布尔运算与偏移（几何内核）
+        - 阵列/对称/变换
+        - 标注与测量
+        - DSH 集成（工具参数、安装、技能）
+        - 文档
+        - 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: 请确认
+      options:
+        - label: 我理解本插件**刻意保持零运行时依赖**（几何、表达式、SVG 全部自写）
+          required: true
+        - label: 我愿意按 `CONTRIBUTING.md` 的要求补上带判据的测试（或说明我无法提交 PR）
+          required: false

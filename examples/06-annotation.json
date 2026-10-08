@@ -1,0 +1,66 @@
+{
+  "name": "06-annotation",
+  "title": "几何标注：顶点 / 角弧 / 直角 / 尺寸",
+  "figure": {
+    "width": 560,
+    "height": 560,
+    "padding": 20,
+    "background": "transparent",
+    "xRange": [-8, 8],
+    "yRange": [-8, 8],
+    "elements": [
+      {
+        "type": "polygon",
+        "points": [
+          [-6, -3],
+          [6, -3],
+          [1, 5]
+        ],
+        "fill": "#dbeafe",
+        "stroke": "#1d4ed8",
+        "stroke_width": 0.3
+      },
+      {
+        "type": "point",
+        "at": [-6, -3],
+        "label": "A",
+        "label_offset": [-22, 14]
+      },
+      {
+        "type": "point",
+        "at": [6, -3],
+        "label": "B",
+        "label_offset": [14, 14]
+      },
+      {
+        "type": "point",
+        "at": [1, 5],
+        "label": "C",
+        "label_offset": [12, -18]
+      },
+      {
+        "type": "angle",
+        "at": [-6, -3],
+        "from": [6, -3],
+        "to": [1, 5],
+        "radius": 2.4,
+        "label": "α"
+      },
+      {
+        "type": "angle",
+        "at": [1, 5],
+        "from": [-6, -3],
+        "to": [6, -3],
+        "radius": 1.6,
+        "right": true
+      },
+      {
+        "type": "dimension",
+        "from": [-6, -3],
+        "to": [6, -3],
+        "offset": 2.2,
+        "label": "12"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 安全漏洞（请勿公开）
+    url: https://github.com/khfcaa/dsh-geometry-draw/security/advisories/new
+    about: 路径逃逸、表达式求值、SVG 注入等安全问题请走私密公告。
+  - name: 使用问题与构图求助
+    url: https://github.com/khfcaa/dsh-geometry-draw/discussions
+    about: 「怎么写这个规格」这类问题适合放 Discussions，而不是 Issue。
+  - name: 先读构图指南
+    url: https://github.com/khfcaa/dsh-geometry-draw/blob/main/skills/free-form-geometry/SKILL.md
+    about: 配方表、已知坑、交付前自检清单都在这里，很多问题看一眼就解决了。

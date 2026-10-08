@@ -1,0 +1,41 @@
+{
+  "name": "04-polar-rose",
+  "title": "极坐标玫瑰线 r = 5.6cos(3θ)",
+  "figure": {
+    "width": 560,
+    "height": 560,
+    "padding": 20,
+    "background": "transparent",
+    "xRange": [-8, 8],
+    "yRange": [-8, 8],
+    "elements": [
+      {
+        "type": "polar",
+        "r": "5.6 * cos(3 * (theta - pi / 2))",
+        "fill": {
+          "type": "radial",
+          "center": [0, 0],
+          "radius": 5.8,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#fda4af"
+            },
+            {
+              "offset": 1,
+              "color": "#be123c"
+            }
+          ]
+        },
+        "stroke": "#881337",
+        "stroke_width": 0.22
+      },
+      {
+        "type": "circle",
+        "center": [0, 0],
+        "radius": 0.32,
+        "fill": "#111827"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "01-boolean-gradient",
+  "title": "布尔差集 + 线性渐变",
+  "figure": {
+    "width": 560,
+    "height": 560,
+    "padding": 20,
+    "background": "transparent",
+    "xRange": [-12, 12],
+    "yRange": [-12, 12],
+    "elements": [
+      {
+        "type": "boolean",
+        "boolean": "difference",
+        "fill_rule": "evenodd",
+        "fill": {
+          "type": "linear",
+          "from": [-8, -8],
+          "to": [8, 8],
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#93c5fd"
+            },
+            {
+              "offset": 1,
+              "color": "#1d4ed8"
+            }
+          ]
+        },
+        "stroke": "#1e3a8a",
+        "stroke_width": 0.3,
+        "elements": [
+          {
+            "type": "circle",
+            "center": [0, 0],
+            "radius": 8
+          },
+          {
+            "type": "star",
+            "center": [0, 0],
+            "radius": 7.2,
+            "inner_radius": 3.9,
+            "points": 5
+          }
+        ]
+      }
+    ]
+  }
+}

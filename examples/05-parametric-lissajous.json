@@ -1,0 +1,29 @@
+{
+  "name": "05-parametric-lissajous",
+  "title": "参数方程：李萨如曲线",
+  "figure": {
+    "width": 560,
+    "height": 560,
+    "padding": 20,
+    "background": "transparent",
+    "xRange": [-8, 8],
+    "yRange": [-8, 8],
+    "elements": [
+      {
+        "type": "parametric",
+        "x": "6.8 * cos(3 * t)",
+        "y": "6.8 * sin(4 * t)",
+        "range": [
+          0,
+          "2 * pi"
+        ],
+        "samples": 2400,
+        "fill": "#0f766e",
+        "fill_opacity": 0.9,
+        "fill_rule": "evenodd",
+        "stroke": "#134e4a",
+        "stroke_width": 0.18
+      }
+    ]
+  }
+}

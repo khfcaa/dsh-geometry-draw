@@ -1,0 +1,74 @@
+{
+  "name": "dsh-geometry-draw",
+  "version": "0.1.0",
+  "description": "自由几何绘图插件：声明式几何规格（布尔运算、轮廓偏移、多轮廓填色、渐变与图案、参数曲线、旋转阵列、几何标注）→ 自包含 SVG + PNG。Free-form geometry drawing for DeepSeek Harness.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "src",
+    "skills",
+    "locale",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node tests/geometry-test.mjs && node tests/tool-test.mjs && node tests/compiler-smoke.mjs",
+    "test:geometry": "node tests/geometry-test.mjs",
+    "test:tool": "node tests/tool-test.mjs",
+    "test:render": "node tests/compiler-smoke.mjs",
+    "gallery": "node tools/make-examples.mjs",
+    "banner": "node tools/make-banner.mjs",
+    "check": "node --check index.js && node --check src/compiler.js && node --check src/geometry.js && node --check src/expr.js && node --check src/path.js && node --check src/math.js && node --check src/validate.js"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "geometry",
+    "drawing",
+    "svg",
+    "boolean-ops",
+    "contour-offset",
+    "fill-rule",
+    "gradient",
+    "pattern",
+    "parametric",
+    "polar",
+    "geometric-construction",
+    "几何",
+    "绘图",
+    "填色"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khfcaa/dsh-geometry-draw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/khfcaa/dsh-geometry-draw/issues"
+  },
+  "homepage": "https://github.com/khfcaa/dsh-geometry-draw#readme",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "license": "MIT"
+}
