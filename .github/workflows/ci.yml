@@ -56,7 +56,7 @@ jobs:
       # 把渲染结果留档：PR 里可以直接下载这四张图，肉眼确认没有被改坏。
       - name: 上传渲染产物
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: render-smoke-${{ matrix.os }}-node${{ matrix.node }}
           path: tests/out/
