@@ -260,6 +260,26 @@ examples/                   # 6 份可直接使用的规格 JSON + 渲染产物
 里面写了**这个仓库真正在乎的事**（几何正确性、带判据的测试、上面那四条设计约束）。
 安全问题请走 [私密渠道](SECURITY.md)，不要开公开 Issue。
 
+## 首次发布到 GitHub
+
+仓库已经 `git init` 并完成首个提交（分支 `main`），remote `origin` 指向
+`https://github.com/khfcaa/dsh-geometry-draw.git`。在 GitHub 新建同名仓库后
+（**不要**勾选 README / LICENSE / .gitignore，本仓库已经有），执行：
+
+```powershell
+# 仓库根目录下
+powershell -ExecutionPolicy Bypass -File _private\push-to-github.ps1
+```
+
+这个脚本会自动找到可用的 `git`（没装独立 Git 时用 Visual Studio 自带的那份），
+检查工作区是否干净，并把必要的 TLS 参数带上再推送。
+
+> **关于那个 TLS 参数**：本机 `github.com` 被 hosts 指到 `127.0.0.1`，由
+> Steam++ 加速器在本地 443 端口转发，并用自带根证书做中间人。Windows 信任它，
+> 但 Git 的 schannel 后端会因为「链不完整」拒绝。脚本因此多带两个参数：
+> `http.sslBackend=schannel` 与 `http.sslCAInfo=_private/steamtools-ca.pem`
+> （加速器根证书）。**能直连 GitHub 的网络不需要这些**，普通 `git push -u origin main` 即可。
+
 ## 许可证
 
 [MIT](LICENSE) © khfcaa
